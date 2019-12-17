@@ -23,4 +23,17 @@ export const signOut = () => auth.signOut();
 
 window.firebase = firebase;
 
+export const createUserProfileDocument = async (user, additionalData) => {
+  if (!user) return;
+
+  // Get a reference to the place in database where user might be
+  const userRef = firestore.doc(`users/${user.uid}`)
+  // Go and fetch  document from location
+  const snapshot = await userRef.get()
+
+  if (!snapshot.exists) {
+
+  }
+};
+
 export default firebase;
